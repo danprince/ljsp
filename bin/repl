@@ -11,17 +11,25 @@ function prompt(sys, carry) {
   function read(rawCode) {
     code = carry + rawCode;
 
-    if(util.balancedParens(code)) {
-      console.log(sys.repl(eval(code)));
-    } else {
-      prompt(sys, code);
+    if(!util.balancedParens(code)) {
+      return prompt(sys, code);
     }
+
+    var result = sys.repl(eval(code));
+
+    if(typeof result === 'undefined') {
+      console.log(chalk.dim(result));
+    } else {
+      console.log(result);
+    }
+
+    prompt(sys, '');
   }
 
   if(carry.length > 0) {
-    sys.reader.question(chalk.cyan('.'), read);
+    sys.reader.question(chalk.cyan('..'), read);
   } else {
-    sys.reader.question(chalk.blue('>'), read);
+    sys.reader.question(chalk.blue('> '), read);
   }
 }
 
@@ -29,6 +37,8 @@ var reader = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+
+console.log(chalk.green('jsxpr repl'));
 
 prompt({
   reader: reader,
