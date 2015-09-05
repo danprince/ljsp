@@ -38,8 +38,6 @@ var reader = readline.createInterface({
   output: process.stdout
 });
 
-console.log(chalk.green('jsxpr repl'));
-
 prompt({
   reader: reader,
   repl: jsxpr.interactive()
