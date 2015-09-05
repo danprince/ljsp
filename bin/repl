@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+var readline = require('readline'),
+    chalk = require('chalk');
+
+var jsxpr = require('../'),
+    util = require('../util');
+
+function prompt(sys, carry) {
+  carry = carry || '';
+
+  function read(rawCode) {
+    code = carry + rawCode;
+
+    if(util.balancedParens(code)) {
+      console.log(sys.repl(eval(code)));
+    } else {
+      prompt(sys, code);
+    }
+  }
+
+  if(carry.length > 0) {
+    sys.reader.question(chalk.cyan('.'), read);
+  } else {
+    sys.reader.question(chalk.blue('>'), read);
+  }
+}
+
+var reader = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+prompt({
+  reader: reader,
+  repl: jsxpr.interactive()
+});
+
