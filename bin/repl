@@ -15,12 +15,16 @@ function prompt(sys, carry) {
       return prompt(sys, code);
     }
 
-    var result = sys.repl(eval(code));
+    try {
+      var result = sys.repl(eval(code));
 
-    if(typeof result === 'undefined') {
-      console.log(chalk.dim(result));
-    } else {
-      console.log(result);
+      if(typeof result === 'undefined') {
+        console.log(chalk.dim(result));
+      } else {
+        console.log(result);
+      }
+    } catch(err) {
+      console.log(chalk.red(err));
     }
 
     prompt(sys, '');
