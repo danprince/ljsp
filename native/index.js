@@ -8,7 +8,7 @@ var native = {
     return this[name] = value;
   }),
   fn: SpecialForm(function(defArgs, expr) {
-    return function() {
+    var fn = function() {
       var callArgs = arguments,
           childScope = Object.create(this);
 
@@ -17,7 +17,18 @@ var native = {
       });
 
       return eval(expr, childScope);
-    }
+    };
+
+    // store the arity of the function for currying
+    // need to use defineProp as fn.length is not writeable
+    Object.defineProperty(fn, 'length', {
+      enumerable: false,
+      writable: false,
+      configurable: false,
+      value: defArgs.length
+    });
+
+    return fn;
   }),
   defn: SpecialForm(function(name, args, expr) {
     var fn = native.fn.call(this, args, expr);
