@@ -1,0 +1,5 @@
+["do",
+  ["def", "inc", ["partial", "+", 1]],
+
+  ["print", ["inc", 5]]]
+
