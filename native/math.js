@@ -30,7 +30,7 @@ var math = {
   '/': function() {
     var ns = util.toArray(arguments);
     return ns.reduce(function(a, b) {
-      return a * b;
+      return a / b;
     });
   },
   '<': function(a, b) {
