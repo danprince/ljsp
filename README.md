@@ -1,4 +1,4 @@
-# jsxpr
+# ljsp
 
 A toy Lisp implemented using arrays and functions in Javascript. If you're wondering why such an abomination exists, then go check out [the blog post][1] that is responsible for its inception.
 
