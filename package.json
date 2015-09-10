@@ -1,5 +1,5 @@
 {
-  "name": "jsxpr",
+  "name": "ljsp",
   "version": "0.0.0",
   "description": "Lisp in your language.",
   "main": "index.js",
