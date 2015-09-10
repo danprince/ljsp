@@ -2,8 +2,8 @@
 var readline = require('readline'),
     chalk = require('chalk');
 
-var jsxpr = require('../'),
-    util = require('../util');
+var jsxpr = require('../lib'),
+    util = require('../lib/util');
 
 function prompt(sys, carry) {
   carry = carry || '';

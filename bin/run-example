@@ -2,7 +2,7 @@
 
 var fs = require('fs');
 
-var jsxpr = require('../');
+var jsxpr = require('../lib');
 
 var args = process.argv.slice(2),
     exampleName = args[0];
@@ -11,7 +11,7 @@ if(!exampleName) {
   throw new Error('Please specify an example to run! E.g. fib.json');
 }
 
-var exampleCode = fs.readFileSync('../examples/' + exampleName),
+var exampleCode = fs.readFileSync('examples/' + exampleName),
     parsedCode = JSON.parse(exampleCode);
 
 console.log(jsxpr.interpret(parsedCode));
