@@ -1,0 +1,5 @@
+["do",
+  ["defmacro", "flip", ["expr"],
+    ["reverse", "expr"]],
+  ["flip", 3, "print"]]
+
