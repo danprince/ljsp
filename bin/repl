@@ -16,7 +16,7 @@ function prompt(sys, carry) {
     }
 
     try {
-      var result = sys.repl(eval(code));
+      var result = sys.repl(code);
 
       if(typeof result === 'undefined') {
         console.log(chalk.dim(result));

@@ -11,8 +11,7 @@ if(!exampleName) {
   throw new Error('Please specify an example to run! E.g. fib.json');
 }
 
-var exampleCode = fs.readFileSync('examples/' + exampleName),
-    parsedCode = JSON.parse(exampleCode);
+var src = fs.readFileSync('examples/' + exampleName);
 
-console.log(jsxpr.interpret(parsedCode));
+console.log(jsxpr.interpret(src));
 
