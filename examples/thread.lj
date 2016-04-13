@@ -1,0 +1,11 @@
+(do
+  (defmacro -> [expr]
+    (reduce expr (fn [thread form]
+                   (do
+                     (def f (head form))
+                     (def args (tail form))
+                     (concat (list f thread) args)))))
+
+  (-> 2
+    (+ 5)
+    (* 10)))

@@ -2,7 +2,7 @@
   "name": "ljsp",
   "version": "0.0.0",
   "description": "Lisp in your language.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "example": "examples",
     "test": "test"
