@@ -29,7 +29,7 @@ Then running `./bin/repl` will start it up. See how it is used in the Asciicast 
 
 [![asciicast](https://asciinema.org/a/09hjbv3sudn2iff6gh2gldawx.png)](https://asciinema.org/a/09hjbv3sudn2iff6gh2gldawx)
 
-[1]: http://danthedev.com/2015/09/09/lisp-in-your-language/
+[1]: http://danthedev.com/2015/09/09/lisp-in-your-language
 [2]: https://www.npmjs.com/package/chalk
 [3]: https://www.npmjs.com/package/readline
 
